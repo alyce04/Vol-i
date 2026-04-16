@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vôlei: Paixão Nacional</title>
+    <meta name="description" content="Uma landing page sobre a história, as regras e a magia do voleibol.">
+    <!-- A conexão com o CSS será feita aqui -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barra de Acessibilidade (fixa no canto) -->
+    <div class="accessibility-bar" role="region" aria-label="Acessibilidade">
+        <button onclick="increaseFont()" aria-label="Aumentar tamanho da fonte">A+</button>
+        <button onclick="decreaseFont()" aria-label="Diminuir tamanho da fonte">A-</button>
+        <button onclick="toggleContrast()" aria-label="Alternar alto contraste">◐</button>
+    </div>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#hero" class="logo" aria-label="Página Inicial - Vôlei">
+                <span class="logo-icon">🏐</span> VôleiMania
+            </a>
+            <nav class="navbar" aria-label="Navegação principal">
+                <ul class="nav-links">
+                    <!-- Os links de navegação suave são para as IDs das seções -->
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#history">História</a></li>
+                    <li><a href="#players">Estrelas</a></li>
+                    <li><a href="#positions">Posições</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Hero -->
+        <section id="hero" class="hero-section reveal">
+            <div class="container hero-content">
+                <h1>A Emoção do Vôlei</h1>
+                <p class="subtitle">Força, estratégia e união em uma das paixões nacionais.</p>
+                <a href="#history" class="cta-button">Conheça a história</a>
+            </div>
+        </section>
+
+        <!-- Seção História -->
+        <section id="history" class="content-section reveal">
+            <div class="container">
+                <h2>Do começo humilde ao estrelato</h2>
+                <p>Criado em 1895 por William G. Morgan nos EUA, o vôlei chegou ao Brasil em 1915. Desde então, nos tornamos uma potência mundial, com títulos olímpicos e mundiais que marcaram gerações. É um esporte de garra, que exige técnica e um espírito de equipe inabalável.</p>
+            </div>
+        </section>
+
+        <!-- Seção de Cards (Estrelas) - O HTML será quase vazio, preenchido pelo JS -->
+        <section id="players" class="content-section reveal">
+            <div class="container">
+                <h2>Estrelas que Brilharam</h2>
+                <div id="players-container" class="cards-grid" aria-live="polite">
+                    <!-- O JavaScript vai popular esta grade com os dados do array 'playersData' -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Acordeões (Posições) -->
+        <section id="positions" class="content-section reveal">
+            <div class="container">
+                <h2>As Posições em Quadra</h2>
+                <div class="accordion" id="positions-accordion">
+                    <!-- Cada "cabeçalho" do acordeão -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false" aria-controls="content-levantador">
+                            Levantador
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div id="content-levantador" class="accordion-content" hidden>
+                            <p>O cérebro do time. É quem arma as jogadas e decide para qual atacante a bola vai. Precisa ter visão de jogo, técnica e liderança.</p>
+                        </div>
+                    </div>
+                    <!-- Mais itens do acordeão... -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false" aria-controls="content-oposto">
+                            Oposto
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div id="content-oposto" class="accordion-content" hidden>
+                            <p>O principal finalizador do time. Joga na saída de rede e é responsável por grandes viradas de bola. Força e potência são suas marcas.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false" aria-controls="content-ponteiro">
+                            Ponteiro
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div id="content-ponteiro" class="accordion-content" hidden>
+                            <p>O coringa da equipe. Ataca, defende e é fundamental no passe para o levantador. É um jogador completo e versátil.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false" aria-controls="content-central">
+                            Central
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div id="content-central" class="accordion-content" hidden>
+                            <p>O gigante da rede. Sua principal função é o bloqueio, mas também ataca com bolas muito rápidas, surpreendendo a defesa adversária.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false" aria-controls="content-libero">
+                            Líbero
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div id="content-libero" class="accordion-content" hidden>
+                            <p>O especialista em defesa. Joga apenas no fundo de quadra e não pode atacar. Usa um uniforme de cor diferente e é o responsável por não deixar a bola cair.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Galeria (Carrossel) - O HTML será quase vazio, preenchido pelo JS -->
+        <section id="gallery" class="content-section reveal">
+            <div class="container">
+                <h2>Galeria de Momentos</h2>
+                <div class="carousel-container" aria-roledescription="carrossel" aria-label="Galeria de imagens de vôlei">
+                    <div class="carousel-slide" id="carousel-slide" aria-live="polite">
+                        <!-- O JavaScript vai popular a imagem, título e descrição aqui -->
+                    </div>
+                    <button class="carousel-btn prev" aria-label="Imagem anterior" onclick="changeSlide(-1)">❮</button>
+                    <button class="carousel-btn next" aria-label="Próxima imagem" onclick="changeSlide(1)">❯</button>
+                    <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Navegação do carrossel">
+                        <!-- O JavaScript vai popular os dots de navegação aqui -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 - VôleiMania. Criado com paixão pelo esporte.</p>
+        </div>
+    </footer>
+
+    <!-- A conexão com o JavaScript será feita aqui -->
+    <script src="script.js"></script>
+</body>
+</html>
