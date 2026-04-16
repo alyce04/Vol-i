@@ -1,0 +1,376 @@
+/* ==========================================================================
+   DESIGN SYSTEM - VARIÁVEIS CSS
+   ========================================================================== */
+:root {
+    /* Paleta de Cores Principal (Tema Claro) */
+    --color-primary: #0b5e7e;      /* Azul petróleo, inspirado na confiança e estratégia */
+    --color-secondary: #f4a261;    /* Laranja areia, representando a energia e a quadra */
+    --color-background: #fdfdfd;
+    --color-surface: #ffffff;
+    --color-text: #2c3e50;
+    --color-text-light: #546e7a;
+    --color-border: #e0e0e0;
+
+    /* Espaçamentos */
+    --space-xs: 0.5rem;  /* 8px */
+    --space-sm: 1rem;    /* 16px */
+    --space-md: 1.5rem;  /* 24px */
+    --space-lg: 3rem;    /* 48px */
+    --space-xl: 5rem;    /* 80px */
+
+    /* Arredondamentos */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    /* Container */
+    --container-max-width: 1200px;
+
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.15);
+
+    /* Fontes */
+    --font-primary: 'Segoe UI', Roboto, system-ui, sans-serif;
+}
+
+/* ==========================================================================
+   MODO ALTO CONTRASTE
+   ========================================================================== */
+body.high-contrast {
+    --color-primary: #ffff00;      /* Amarelo */
+    --color-secondary: #ffffff;    /* Branco */
+    --color-background: #000000;   /* Preto */
+    --color-surface: #121212;      /* Preto acinzentado */
+    --color-text: #ffffff;         /* Branco */
+    --color-text-light: #e0e0e0;   /* Cinza claro */
+    --color-border: #ffffff;       /* Branco */
+    --shadow-sm: none;
+    --shadow-md: 0 0 0 2px #ffff00; /* Borda amarela como foco */
+    --shadow-lg: 0 0 0 3px #ffff00;
+}
+body.high-contrast * {
+    box-shadow: none !important;
+}
+
+/* ==========================================================================
+   ESTILOS GLOBAIS (Mobile-First)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%; /* 16px base */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    width: 90%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   TIPOGRAFIA
+   ========================================================================== */
+h1, h2, h3, h4 {
+    margin-bottom: var(--space-sm);
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); text-align: center; margin-bottom: var(--space-lg); }
+
+/* ==========================================================================
+   COMPONENTES REUTILIZÁVEIS
+   ========================================================================== */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    font-weight: bold;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.cards-grid {
+    display: grid;
+    /* Mobile-First: 1 coluna */
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+/* ==========================================================================
+   LAYOUT - CABEÇALHO E RODAPÉ
+   ========================================================================== */
+.header {
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-sm) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--color-border);
+}
+.header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--space-md);
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--color-primary); }
+
+.footer {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    padding: var(--space-lg) 0;
+    margin-top: var(--space-xl);
+    color: var(--color-text-light);
+}
+
+/* ==========================================================================
+   LAYOUT - SEÇÕES DE CONTEÚDO
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(45deg, rgba(11, 94, 126, 0.8), rgba(45, 62, 80, 0.9)), url('https://placecats.com/1200/600') no-repeat center/cover;
+    color: white;
+    padding: var(--space-xl) 0;
+    text-align: center;
+}
+.hero-section h1, .hero-section .subtitle { color: white; }
+.hero-section h1 { margin-bottom: var(--space-xs); }
+.hero-section .subtitle { font-size: 1.2rem; margin-bottom: var(--space-lg); }
+
+.content-section {
+    padding: var(--space-xl) 0;
+}
+
+/* ==========================================================================
+   COMPONENTES JS (Acordeão, Carrossel, Cards)
+   ========================================================================== */
+/* Estilos do Card (serão criados pelo JS) */
+.player-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s;
+}
+.player-card:hover { transform: scale(1.02); }
+.player-card h3 { margin-bottom: var(--space-xs); color: var(--color-primary); }
+.player-card p { color: var(--color-text-light); }
+.player-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-sm);
+}
+
+/* Acordeão */
+.accordion-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+    overflow: hidden;
+}
+.accordion-header {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: var(--space-md);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.accordion-content {
+    padding: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    background: var(--color-background);
+}
+.accordion-content[hidden] { display: none; }
+
+/* Carrossel */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+.carousel-slide {
+    position: relative;
+    aspect-ratio: 16 / 9;
+}
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: var(--space-lg) var(--space-md) var(--space-md);
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: var(--space-sm);
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.carousel-btn:hover { background: rgba(0,0,0,0.8); }
+.carousel-btn.prev { left: var(--space-md); }
+.carousel-btn.next { right: var(--space-md); }
+.carousel-dots {
+    position: absolute;
+    bottom: var(--space-md);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-sm);
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+}
+.dot.active { background: white; }
+
+/* ==========================================================================
+   ACESSIBILIDADE
+   ========================================================================== */
+.accessibility-bar {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 5px;
+    background: var(--color-surface);
+    padding: 5px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+}
+.accessibility-bar button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    transition: background 0.2s;
+}
+.accessibility-bar button:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* ==========================================================================
+   ANIMAÇÕES SCROLL REVEAL
+   ========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (Media Queries) - Mobile-First
+   ========================================================================== */
+/* 1. Layout da Grade de Cards: Muda para 2 colunas em tablets */
+@media (min-width: 600px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* 2. Layout da Grade de Cards: Muda para 3 colunas em desktops */
+@media (min-width: 900px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+/* 3. Ajustes para o cabeçalho em telas muito pequenas */
+@media (max-width: 600px) {
+    .header-inner {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
