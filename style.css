@@ -1,19 +1,17 @@
 /* ==========================================================================
-   DESIGN SYSTEM - VARIÁVEIS CSS (Aesthetic Color Palette)
+   DESIGN SYSTEM - VARIÁVEIS CSS
    ========================================================================== */
 :root {
-    /* Paleta de Cores Principal - Inspirada no Vôlei de Praia/Quadra */
-    --color-primary: #1a5b9c;      /* Azul mais vibrante */
-    --color-secondary: #f4a261;    /* Laranja areia */
-    --color-accent: #e9c46a;       /* Amarelo destaque */
-    --color-background: #f8f9fa;
-    --color-surface: rgba(255, 255, 255, 0.85); /* NOVO: Superfície com transparência */
-    --color-surface-solid: #ffffff;
-    --color-text: #264653;
-    --color-text-light: #5c7a8b;
-    --color-border: rgba(0, 0, 0, 0.05); /* NOVO: Borda mais suave */
+    /* Paleta de Cores Principal (Tema Claro) */
+    --color-primary: #0b5e7e;      /* Azul petróleo, inspirado na confiança e estratégia */
+    --color-secondary: #f4a261;    /* Laranja areia, representando a energia e a quadra */
+    --color-background: #fdfdfd;
+    --color-surface: #ffffff;
+    --color-text: #2c3e50;
+    --color-text-light: #546e7a;
+    --color-border: #e0e0e0;
 
-    /* Espaçamentos (mantidos) */
+    /* Espaçamentos */
     --space-xs: 0.5rem;  /* 8px */
     --space-sm: 1rem;    /* 16px */
     --space-md: 1.5rem;  /* 24px */
@@ -21,46 +19,43 @@
     --space-xl: 5rem;    /* 80px */
 
     /* Arredondamentos */
-    --radius-sm: 12px;  /* NOVO: Mais arredondado */
-    --radius-md: 24px;  /* NOVO: Mais arredondado */
-    --radius-lg: 36px;  /* NOVO: Mais arredondado */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
 
     /* Container */
     --container-max-width: 1200px;
 
-    /* Sombras (Mais suaves e "aesthetic") */
-    --shadow-sm: 0 10px 20px -5px rgba(0, 0, 0, 0.03);
-    --shadow-md: 0 20px 30px -10px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 30px 40px -15px rgba(0, 0, 0, 0.08);
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.15);
 
     /* Fontes */
-    --font-primary: 'Poppins', 'Segoe UI', Roboto, system-ui, sans-serif; /* NOVO: Fonte mais moderna */
+    --font-primary: 'Segoe UI', Roboto, system-ui, sans-serif;
 }
 
 /* ==========================================================================
-   MODO ALTO CONTRASTE (Mantido, com ajustes de cores)
+   MODO ALTO CONTRASTE
    ========================================================================== */
 body.high-contrast {
-    --color-primary: #ffff00;
-    --color-secondary: #ffffff;
-    --color-background: #000000;
-    --color-surface: #121212;
-    --color-surface-solid: #000000;
-    --color-text: #ffffff;
-    --color-text-light: #e0e0e0;
-    --color-border: #ffff00;
+    --color-primary: #ffff00;      /* Amarelo */
+    --color-secondary: #ffffff;    /* Branco */
+    --color-background: #000000;   /* Preto */
+    --color-surface: #121212;      /* Preto acinzentado */
+    --color-text: #ffffff;         /* Branco */
+    --color-text-light: #e0e0e0;   /* Cinza claro */
+    --color-border: #ffffff;       /* Branco */
     --shadow-sm: none;
-    --shadow-md: 0 0 0 2px #ffff00;
+    --shadow-md: 0 0 0 2px #ffff00; /* Borda amarela como foco */
     --shadow-lg: 0 0 0 3px #ffff00;
-    backdrop-filter: none !important; /* Remove o blur no alto contraste */
 }
 body.high-contrast * {
     box-shadow: none !important;
-    backdrop-filter: none !important;
 }
 
 /* ==========================================================================
-   ESTILOS GLOBAIS
+   ESTILOS GLOBAIS (Mobile-First)
    ========================================================================== */
 * {
     margin: 0;
@@ -69,7 +64,7 @@ body.high-contrast * {
 }
 
 html {
-    font-size: 100%;
+    font-size: 100%; /* 16px base */
     scroll-behavior: smooth;
 }
 
@@ -77,9 +72,7 @@ body {
     font-family: var(--font-primary);
     line-height: 1.6;
     color: var(--color-text);
-    /* NOVO: Fundo com gradiente sutil */
-    background: linear-gradient(145deg, #fdfbfb 0%, #ebedee 100%);
-    background-attachment: fixed;
+    background-color: var(--color-background);
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -98,37 +91,37 @@ h1, h2, h3, h4 {
     font-weight: 700;
     color: var(--color-primary);
 }
-h1 { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.02em; }
-h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var(--space-lg); }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); text-align: center; margin-bottom: var(--space-lg); }
 
 /* ==========================================================================
-   COMPONENTES REUTILIZÁVEIS (Aesthetic)
+   COMPONENTES REUTILIZÁVEIS
    ========================================================================== */
 .cta-button {
     display: inline-block;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    color: white;
-    font-weight: 600;
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: 50px; /* NOVO: Botão pílula */
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    font-weight: bold;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-md);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--shadow-sm);
 }
 .cta-button:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
 
 .cards-grid {
     display: grid;
+    /* Mobile-First: 1 coluna */
     grid-template-columns: 1fr;
     gap: var(--space-md);
 }
 
 /* ==========================================================================
-   LAYOUT - CABEÇALHO E RODAPÉ (Com vidro fosco)
+   LAYOUT - CABEÇALHO E RODAPÉ
    ========================================================================== */
 .header {
     background-color: var(--color-surface);
@@ -138,7 +131,6 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
     top: 0;
     z-index: 100;
     border-bottom: 1px solid var(--color-border);
-    backdrop-filter: blur(10px); /* NOVO: Efeito de vidro fosco */
 }
 .header-inner {
     display: flex;
@@ -152,7 +144,6 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
     color: var(--color-primary);
     text-decoration: none;
 }
-.logo-icon { font-size: 1.8rem; }
 .nav-links {
     display: flex;
     list-style: none;
@@ -160,19 +151,14 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
 }
 .nav-links a {
     text-decoration: none;
-    color: var(--color-text);
+    color: var(--color-text-light);
     font-weight: 500;
-    padding: var(--space-xs) 0;
     transition: color 0.2s;
-    border-bottom: 2px solid transparent;
 }
-.nav-links a:hover {
-    color: var(--color-primary);
-    border-bottom-color: var(--color-accent);
-}
+.nav-links a:hover { color: var(--color-primary); }
 
 .footer {
-    background-color: var(--color-surface-solid);
+    background-color: var(--color-surface);
     border-top: 1px solid var(--color-border);
     text-align: center;
     padding: var(--space-lg) 0;
@@ -184,15 +170,12 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
    LAYOUT - SEÇÕES DE CONTEÚDO
    ========================================================================== */
 .hero-section {
-    /* NOVO: Gradiente sobre uma imagem real de vôlei */
-    background: linear-gradient(90deg, rgba(26, 91, 156, 0.8), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1200') no-repeat center/cover;
+    background: linear-gradient(45deg, rgba(11, 94, 126, 0.8), rgba(45, 62, 80, 0.9)), url('https://placecats.com/1200/600') no-repeat center/cover;
     color: white;
     padding: var(--space-xl) 0;
     text-align: center;
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg); /* NOVO: Borda arredondada embaixo */
-    margin-bottom: var(--space-lg);
 }
-.hero-section h1, .hero-section .subtitle { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+.hero-section h1, .hero-section .subtitle { color: white; }
 .hero-section h1 { margin-bottom: var(--space-xs); }
 .hero-section .subtitle { font-size: 1.2rem; margin-bottom: var(--space-lg); }
 
@@ -201,34 +184,26 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
 }
 
 /* ==========================================================================
-   COMPONENTES JS (Acordeão, Carrossel, Cards) - Aesthetic
+   COMPONENTES JS (Acordeão, Carrossel, Cards)
    ========================================================================== */
-/* Cards (Efeito de vidro) */
+/* Estilos do Card (serão criados pelo JS) */
 .player-card {
     background: var(--color-surface);
     border-radius: var(--radius-md);
     padding: var(--space-md);
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--color-border);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px); /* NOVO: Efeito de vidro */
-    text-align: center;
+    transition: transform 0.2s;
 }
-.player-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-md);
-    background: rgba(255, 255, 255, 0.95);
-}
-.player-card h3 { margin-top: var(--space-sm); margin-bottom: var(--space-xs); color: var(--color-primary); }
+.player-card:hover { transform: scale(1.02); }
+.player-card h3 { margin-bottom: var(--space-xs); color: var(--color-primary); }
 .player-card p { color: var(--color-text-light); }
 .player-img {
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 50%; /* NOVO: Imagem redonda */
-    margin: 0 auto var(--space-sm);
-    border: 4px solid white;
-    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-sm);
 }
 
 /* Acordeão */
@@ -238,10 +213,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
     border-radius: var(--radius-md);
     margin-bottom: var(--space-sm);
     overflow: hidden;
-    backdrop-filter: blur(5px);
-    transition: box-shadow 0.3s;
 }
-.accordion-item:hover { box-shadow: var(--shadow-sm); }
 .accordion-header {
     background: none;
     border: none;
@@ -249,7 +221,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
     text-align: left;
     padding: var(--space-md);
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: bold;
     color: var(--color-primary);
     cursor: pointer;
     display: flex;
@@ -266,11 +238,11 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
 /* Carrossel */
 .carousel-container {
     position: relative;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
 }
 .carousel-slide {
     position: relative;
@@ -287,19 +259,17 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(26, 91, 156, 0.9));
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
     color: white;
     padding: var(--space-lg) var(--space-md) var(--space-md);
-    text-align: left;
 }
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px);
-    color: var(--color-primary);
-    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
     font-size: 2rem;
     padding: var(--space-sm);
     cursor: pointer;
@@ -309,11 +279,9 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
+    transition: background 0.2s;
 }
-.carousel-btn:hover {
-    background: rgba(255, 255, 255, 0.8);
-}
+.carousel-btn:hover { background: rgba(0,0,0,0.8); }
 .carousel-btn.prev { left: var(--space-md); }
 .carousel-btn.next { right: var(--space-md); }
 .carousel-dots {
@@ -332,13 +300,11 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
     cursor: pointer;
     border: none;
     padding: 0;
-    transition: background 0.2s, transform 0.2s;
 }
-.dot:hover { background: rgba(255,255,255,0.9); transform: scale(1.2); }
-.dot.active { background: var(--color-accent); }
+.dot.active { background: white; }
 
 /* ==========================================================================
-   ACESSIBILIDADE (Aesthetic)
+   ACESSIBILIDADE
    ========================================================================== */
 .accessibility-bar {
     position: fixed;
@@ -348,11 +314,10 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
     display: flex;
     gap: 5px;
     background: var(--color-surface);
-    padding: 8px;
-    border-radius: 50px; /* NOVO: Pílula */
+    padding: 5px;
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     border: 1px solid var(--color-border);
-    backdrop-filter: blur(10px);
 }
 .accessibility-bar button {
     background: none;
@@ -361,18 +326,17 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
     font-weight: bold;
     padding: 8px 12px;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: var(--radius-sm);
     color: var(--color-text);
-    transition: all 0.2s;
+    transition: background 0.2s;
 }
 .accessibility-bar button:hover {
     background: var(--color-primary);
     color: white;
-    transform: scale(1.05);
 }
 
 /* ==========================================================================
-   ANIMAÇÕES SCROLL REVEAL (Mantidas)
+   ANIMAÇÕES SCROLL REVEAL
    ========================================================================== */
 .reveal {
     opacity: 0;
@@ -387,14 +351,27 @@ h2 { font-size: clamp(2rem, 4.5vw, 3rem); text-align: center; margin-bottom: var
 /* ==========================================================================
    RESPONSIVIDADE (Media Queries) - Mobile-First
    ========================================================================== */
+/* 1. Layout da Grade de Cards: Muda para 2 colunas em tablets */
 @media (min-width: 600px) {
-    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
+/* 2. Layout da Grade de Cards: Muda para 3 colunas em desktops */
 @media (min-width: 900px) {
-    .cards-grid { grid-template-columns: repeat(3, 1fr); }
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
+/* 3. Ajustes para o cabeçalho em telas muito pequenas */
 @media (max-width: 600px) {
-    .header-inner { flex-direction: column; gap: var(--space-sm); }
-    .nav-links { flex-wrap: wrap; justify-content: center; }
-    .accessibility-bar { top: 80px; }
+    .header-inner {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
 }
